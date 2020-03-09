@@ -1910,6 +1910,7 @@ static int _sde_encoder_switch_to_watchdog_vsync(struct drm_encoder *drm_enc)
 	return 0;
 }
 
+extern unsigned int framerate_override;
 static int _sde_encoder_update_rsc_client(
 		struct drm_encoder *drm_enc,
 		struct sde_encoder_rsc_config *config, bool enable)
@@ -1977,7 +1978,7 @@ static int _sde_encoder_update_rsc_client(
 	if (IS_SDE_MAJOR_SAME(sde_kms->core_rev, SDE_HW_VER_620)) {
 		if (sde_encoder_in_clone_mode(drm_enc) ||
 			!disp_info->is_primary || (disp_info->is_primary &&
-				qsync_mode))
+				qsync_mode) || framerate_override)
 			rsc_state = enable ? SDE_RSC_CLK_STATE :
 					SDE_RSC_IDLE_STATE;
 		else if (sde_encoder_check_curr_mode(drm_enc,
