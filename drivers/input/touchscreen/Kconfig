@@ -1314,4 +1314,7 @@ config TOUCHSCREEN_NT36XX
 
 source "drivers/input/touchscreen/nt36xxx/Kconfig"
 
+config TOUCHSCREEN_MI_DAVINCI_DOUBLE_CLICK
+	bool "Double Click Driver port from Xiaomi"
+
 endif
