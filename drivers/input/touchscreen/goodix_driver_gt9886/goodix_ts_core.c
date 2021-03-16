@@ -1866,7 +1866,7 @@ int goodix_ts_fb_notifier_callback(struct notifier_block *self,
 			ts_info("touchpanel suspend .....suspend_stat=%d\n", atomic_read(&core_data->suspend_stat));
 			if (atomic_read(&core_data->suspend_stat))
 				return 0;
-			ts_info("touchpanel suspend by %s", blank == DRM_BLANK_POWERDOWN ? "blank" : "doze");
+			ts_info("touchpanel suspend by %s", blank == MSM_DRM_BLANK_POWERDOWN ? "blank" : "doze");
 			queue_work(core_data->event_wq, &core_data->suspend_work);
 		} else if (event == MSM_DRM_EVENT_BLANK && blank == MSM_DRM_BLANK_UNBLANK) {
 			//if (!atomic_read(&core_data->suspend_stat))
